@@ -17,3 +17,59 @@
 .audio-controls button:focus-visible,.audio-seek:focus-visible{outline:3px solid #328b79;outline-offset:3px}
 .audio-message{min-height:1em;color:#a34131;font-size:13px;margin:0}
 @media(max-width:620px){.audio-controls{gap:9px}.audio-controls button{min-width:77px;min-height:78px}.audio-controls .audio-play{min-width:87px;min-height:87px}.audio-player{padding-top:10px}}
+
+/* Story creators / soundbook credits */
+.creators{margin:0 0 25px;border:1px solid var(--border);background:var(--paper);border-radius:16px;padding:24px 25px}
+.creators h2{font-size:17px;margin:0 0 15px;letter-spacing:-.035em}
+.creators dl{margin:0}.creators dl>div{display:flex;gap:18px;align-items:baseline;padding:9px 0;border-top:1px solid var(--border)}
+.creators dt{min-width:104px;color:var(--muted);font-size:14px}.creators dd{margin:0;font-weight:700;font-size:14px;overflow-wrap:anywhere}
+@media(max-width:620px){.creators{padding:20px}.creators dt{min-width:95px}}
+
+
+/* Accessible, centered story detail — title > cover > player > credits > synopsis */
+.detail{display:block;max-width:780px;margin:0 auto;padding-bottom:85px}
+.story-page{width:100%;display:flex;flex-direction:column;align-items:stretch;gap:25px}
+.story-heading{text-align:center;margin:0 auto 1px;width:100%}
+.story-heading .eyebrow{font-size:14px;letter-spacing:.16em;margin:0 0 12px}
+.story-heading h1{font-size:clamp(29px,4.3vw,42px);line-height:1.35;letter-spacing:-.052em;margin:0;font-weight:800;overflow-wrap:anywhere}
+.story-cover-wrap{display:flex;justify-content:center;align-items:center;width:100%;padding:4px 0 2px}
+.story-cover-wrap .detail-cover{width:auto;height:auto;max-width:min(100%,375px);max-height:550px;object-fit:contain;margin:0 auto;border-radius:16px}
+.story-page .player,.story-page .creators,.story-page .synopsis{margin:0;width:100%;border:1px solid var(--border);background:var(--paper);border-radius:19px;padding:27px 31px}
+.story-page .player h2,.story-page .creators h2,.story-page .synopsis h2{font-size:23px;letter-spacing:-.03em;line-height:1.35;margin:0 0 20px}
+.story-page .audio-player{gap:18px;padding:12px 0 3px}
+.story-page .audio-seek{height:48px}
+.story-page .audio-seek::-webkit-slider-runnable-track{height:13px}
+.story-page .audio-seek::-moz-range-track,.story-page .audio-seek::-moz-range-progress{height:13px}
+.story-page .audio-seek::-webkit-slider-thumb{width:32px;height:32px;margin-top:-10px}
+.story-page .audio-seek::-moz-range-thumb{width:26px;height:26px}
+.story-page .audio-times{font-size:17px;margin-top:-10px}
+.story-page .audio-controls{gap:18px}
+.story-page .audio-controls button{min-width:108px;min-height:100px;font-size:37px;border-radius:16px}
+.story-page .audio-controls .audio-play{min-width:118px;min-height:110px;font-size:42px}
+.story-page .audio-controls button small{font-size:15px}
+.story-page .creators dl>div{padding:14px 0;align-items:start}
+.story-page .creators dt{min-width:135px;font-size:18px}
+.story-page .creators dd{font-size:18px}
+.story-page .synopsis .desc{font-size:19px;line-height:1.9;margin:0;overflow-wrap:anywhere;color:var(--ink)}
+.story-page .waiting{padding:36px 22px}
+.story-page .waiting strong{font-size:20px}
+.story-page .waiting span{font-size:17px}
+.story-page .home-link{font-size:18px;min-height:58px;align-self:stretch;text-align:center;border-radius:14px}
+.back{font-size:17px;min-height:45px;align-items:center}
+@media(max-width:620px){
+  .detail{padding-bottom:65px}
+  .story-page{gap:19px}
+  .story-heading h1{font-size:clamp(25px,7vw,34px)}
+  .story-heading .eyebrow{font-size:13px}
+  .story-cover-wrap .detail-cover{max-width:min(100%,315px);max-height:465px;margin:0 auto}
+  .story-page .player,.story-page .creators,.story-page .synopsis{padding:21px 19px;border-radius:16px}
+  .story-page .player h2,.story-page .creators h2,.story-page .synopsis h2{font-size:21px;margin-bottom:15px}
+  .story-page .audio-controls{gap:7px}
+  .story-page .audio-controls button{min-width:0;flex:1;min-height:88px;font-size:34px}
+  .story-page .audio-controls .audio-play{min-width:0;flex:1.15;min-height:98px;font-size:38px}
+  .story-page .audio-controls button small{font-size:13px}
+  .story-page .creators dt{min-width:114px;font-size:16px}
+  .story-page .creators dd{font-size:17px}
+  .story-page .synopsis .desc{font-size:18px;line-height:1.85}
+  .story-page .audio-times{font-size:16px}
+}

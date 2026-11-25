@@ -19,9 +19,14 @@
   document.title = book.title + ' | 사운드북 아카이브';
   detail.className = 'detail';
   detail.innerHTML = `
-    <img class="detail-cover" src="${esc(book.cover)}" alt="${esc(book.title)} 표지">
-    <div class="detail-info"><p class="eyebrow">STORY ${esc(book.id)} / 11</p><h1>${esc(book.title)}</h1>
-      <p class="desc">${esc(book.description || '작품 소개는 추후 추가될 예정입니다.')}</p>
+    <div class="story-page">
+      <header class="story-heading">
+        <p class="eyebrow">STORY ${esc(book.id)} / 11</p>
+        <h1>${esc(book.title)}</h1>
+      </header>
+      <div class="story-cover-wrap">
+        <img class="detail-cover" src="${esc(book.cover)}" alt="${esc(book.title)} 표지">
+      </div>
       <section class="player" aria-label="오디오북 재생 영역"><h2>오디오북 듣기</h2>
         ${book.audioReady ? `
           <div class="audio-player">
@@ -36,7 +41,19 @@
             </div>
             <p class="audio-message" id="audio-message" role="status" aria-live="polite"></p>
           </div>` : `<div class="waiting" role="status"><strong>오디오북을 준비하고 있어요!</strong><span>곧 소리로 만나는 이야기가 찾아옵니다.</span></div>`}
-      </section><a class="home-link" href="index.html">전체 작품 둘러보기 →</a>
+      </section>
+      <section class="creators" aria-labelledby="creators-title">
+        <h2 id="creators-title">만든 사람들</h2>
+        <dl>
+          <div><dt>이야기 창작</dt><dd>${esc(book.storyAuthor || '미등록')}</dd></div>
+          <div><dt>사운드북 제작</dt><dd>${esc(book.soundbookProducer || '미등록')}</dd></div>
+        </dl>
+      </section>
+      <section class="synopsis" aria-labelledby="synopsis-title">
+        <h2 id="synopsis-title">이야기 소개</h2>
+        <p class="desc">${esc(book.description || '작품 소개는 추후 추가될 예정입니다.')}</p>
+      </section>
+      <a class="home-link" href="index.html">전체 작품 둘러보기 →</a>
     </div>`;
   if (!book.audioReady) return;
   const audio = document.getElementById('soundbook-audio');
